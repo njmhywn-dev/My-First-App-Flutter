@@ -1,2 +1,16 @@
-# My-First-App-Flutter
- Drug expiration notification app Used for people who want to write down which drug expires when Can enter values ​​such as drug name, date, month, year, expired drug, and the app will display the results on the main page of the app.
+# flutter_application_001
+
+A new Flutter project.
+
+## Getting Started
+
+This project is a starting point for a Flutter application.
+
+A few resources to get you started if this is your first Flutter project:
+
+- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
+- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+
+For help getting started with Flutter development, view the
+[online documentation](https://docs.flutter.dev/), which offers tutorials,
+samples, guidance on mobile development, and a full API reference.
