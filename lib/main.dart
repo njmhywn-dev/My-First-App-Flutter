@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_001/Screens/HomeScreen.dart';
 import 'package:flutter_application_001/providers/transactions_Provider.dart';
-import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 
 void main() {

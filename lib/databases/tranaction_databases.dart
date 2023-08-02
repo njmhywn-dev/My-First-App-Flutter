@@ -1,4 +1,3 @@
-import 'dart:developer';
 import 'dart:io';
 
 import 'package:flutter_application_001/models/Transactions.dart';
@@ -17,7 +16,7 @@ class TransactionDB{
       Directory appDirectory = await getApplicationDocumentsDirectory();
       String dbLocation = join(appDirectory.path,dbName);
 
-      DatabaseFactory dbFactory = await databaseFactoryIo;
+      DatabaseFactory dbFactory = databaseFactoryIo;
       Database db = await dbFactory.openDatabase(dbLocation);
       return db;
     }
@@ -32,36 +31,29 @@ class TransactionDB{
     var keyID = await store.add(db, {
       
     });
-    await store.record(keyID).put(db, {'id': keyID, "name": statement.name,
-      "date": statement.dates,"date2": statement.dates2,});
+    
+    await store.record(keyID).put(db, {
+      "id": keyID, 
+      "name": statement.name,
+      "date": statement.dates,
+      "date2": statement.dates2,
+    });
     db.close();
     //print(keyID);
     return keyID;
   }
 
   Future deleteData(statement) async {
-     var db = await openDatabase();
+    var db = await openDatabase();
     var store = intMapStoreFactory.store("expense");
-    //print(statement);
     await store.record(statement).delete(db);
-    // var db = await openDatabase();
-    // var store = intMapStoreFactory.store("expense");
-    // await store.delete(db);
-    
-    // var db = await openDatabase();
-    // var store = intMapStoreFactory.store("expense");
-    // var snapshot = await store.find(db,
-    //     finder: Finder(sortOrders: [SortOrder(Field.key, false)]));
-    // List transactionList = <Transactions>[];
-    
-    // log('${snapshot}');
   }
 
   Future<List> loadAllData() async {
     var db = await openDatabase();
     var store = intMapStoreFactory.store("expense");
-    var snapshot = await store.find(db,
-        finder: Finder(sortOrders: [SortOrder(Field.key, false)]));
+    var snapshot = await store.find(
+      db,finder: Finder(sortOrders: [SortOrder(Field.key, false)]));
     List transactionList = <Transactions>[];
     //ดึงมาทีละแถว
     for (dynamic record in snapshot) {
