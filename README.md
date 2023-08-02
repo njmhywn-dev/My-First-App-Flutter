@@ -1,4 +1,4 @@
-# flutter_application_001
+# flutter_application_DrugAlert
 
 A new Flutter project.
 
